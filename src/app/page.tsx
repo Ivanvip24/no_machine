@@ -1,103 +1,215 @@
-import Image from "next/image";
+import Link from 'next/link'
+import { ArrowRight, Shield, Heart, Lightbulb, Star } from 'lucide-react'
 
 export default function Home() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <div className="min-h-screen bg-gradient-to-br from-indigo-50 to-cyan-50">
+      {/* Navigation */}
+      <nav className="bg-white/80 backdrop-blur-sm shadow-sm">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-16">
+            <div className="flex items-center gap-3">
+              <div className="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center">
+                <span className="text-white font-bold text-lg">N</span>
+              </div>
+              <span className="text-xl font-bold text-gray-900">No_Machine</span>
+            </div>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+            <div className="flex items-center space-x-4">
+              <Link
+                href="/auth/login"
+                className="text-gray-700 hover:text-gray-900 px-3 py-2 text-sm font-medium"
+              >
+                Sign In
+              </Link>
+              <Link
+                href="/auth/register"
+                className="bg-indigo-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-indigo-700 transition-colors"
+              >
+                Get Started
+              </Link>
+            </div>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+      </nav>
+
+      {/* Hero Section */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-16">
+        <div className="text-center mb-16">
+          <h1 className="text-5xl font-bold text-gray-900 mb-6">
+            Setting boundaries shouldn't be this hard
+          </h1>
+          <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
+            Meet your boundary-setting companion. Get personalized advice on how to decline
+            events, reject requests, and protect your time with confidence and grace.
+          </p>
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <Link
+              href="/auth/register"
+              className="bg-indigo-600 text-white px-8 py-3 rounded-lg text-lg font-medium hover:bg-indigo-700 transition-colors flex items-center gap-2"
+            >
+              Start Setting Boundaries
+              <ArrowRight size={20} />
+            </Link>
+            <Link
+              href="/auth/login"
+              className="text-indigo-600 hover:text-indigo-800 px-8 py-3 text-lg font-medium"
+            >
+              Already have an account?
+            </Link>
+          </div>
+        </div>
+
+        {/* Features */}
+        <div className="grid md:grid-cols-3 gap-8 mb-16">
+          <div className="text-center p-6 bg-white rounded-lg shadow-md">
+            <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <Shield className="text-green-600" size={32} />
+            </div>
+            <h3 className="text-xl font-semibold text-gray-900 mb-3">
+              Three Boundary Levels
+            </h3>
+            <p className="text-gray-600">
+              Get soft, clear, and firm boundary options for every situation.
+              Choose what feels right for your relationship and context.
+            </p>
+          </div>
+
+          <div className="text-center p-6 bg-white rounded-lg shadow-md">
+            <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <Heart className="text-purple-600" size={32} />
+            </div>
+            <h3 className="text-xl font-semibold text-gray-900 mb-3">
+              Psychology-Backed Advice
+            </h3>
+            <p className="text-gray-600">
+              Learn why each approach works with insights from your reformed
+              people-pleaser coach who's been in your shoes.
+            </p>
+          </div>
+
+          <div className="text-center p-6 bg-white rounded-lg shadow-md">
+            <div className="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <Lightbulb className="text-yellow-600" size={32} />
+            </div>
+            <h3 className="text-xl font-semibold text-gray-900 mb-3">
+              Visual Mood Lighteners
+            </h3>
+            <p className="text-gray-600">
+              Get delightfully absurd AI-generated images to share alongside
+              your boundaries and lighten the mood.
+            </p>
+          </div>
+        </div>
+
+        {/* How It Works */}
+        <div className="bg-white rounded-lg shadow-lg p-8 mb-16">
+          <h2 className="text-3xl font-bold text-gray-900 text-center mb-12">
+            How No_Machine Works
+          </h2>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="text-center">
+              <div className="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-xl font-bold text-indigo-600">1</span>
+              </div>
+              <h3 className="font-semibold text-gray-900 mb-2">
+                Describe Your Situation
+              </h3>
+              <p className="text-gray-600 text-sm">
+                Tell the Boundary Coach about the event you want to decline
+                or request you need to reject.
+              </p>
+            </div>
+
+            <div className="text-center">
+              <div className="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-xl font-bold text-indigo-600">2</span>
+              </div>
+              <h3 className="font-semibold text-gray-900 mb-2">
+                Get Personalized Options
+              </h3>
+              <p className="text-gray-600 text-sm">
+                Receive three boundary-setting approaches with psychology
+                insights and usage guidance.
+              </p>
+            </div>
+
+            <div className="text-center">
+              <div className="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-xl font-bold text-indigo-600">3</span>
+              </div>
+              <h3 className="font-semibold text-gray-900 mb-2">
+                Send with Confidence
+              </h3>
+              <p className="text-gray-600 text-sm">
+                Copy your chosen response and optional visual mood lighteners
+                to share with confidence.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Testimonials */}
+        <div className="text-center mb-16">
+          <h2 className="text-3xl font-bold text-gray-900 mb-8">
+            From Reformed People-Pleasers
+          </h2>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="bg-white p-6 rounded-lg shadow-md">
+              <div className="flex items-center gap-1 justify-center mb-4">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} size={16} className="text-yellow-500 fill-current" />
+                ))}
+              </div>
+              <p className="text-gray-700 italic mb-4">
+                "Finally, a tool that helps me say no without feeling guilty!
+                The psychology explanations really help me understand why boundaries work."
+              </p>
+              <p className="text-sm text-gray-500">— Sarah K.</p>
+            </div>
+
+            <div className="bg-white p-6 rounded-lg shadow-md">
+              <div className="flex items-center gap-1 justify-center mb-4">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} size={16} className="text-yellow-500 fill-current" />
+                ))}
+              </div>
+              <p className="text-gray-700 italic mb-4">
+                "The visual mood lighteners are genius! They help break the tension
+                when I have to set firm boundaries with difficult people."
+              </p>
+              <p className="text-sm text-gray-500">— Mike R.</p>
+            </div>
+          </div>
+        </div>
+
+        {/* CTA */}
+        <div className="text-center bg-indigo-600 text-white rounded-lg p-8">
+          <h2 className="text-3xl font-bold mb-4">
+            Ready to Reclaim Your Time?
+          </h2>
+          <p className="text-xl mb-6 text-indigo-100">
+            Join thousands who've learned to set healthy boundaries with confidence.
+          </p>
+          <Link
+            href="/auth/register"
+            className="bg-white text-indigo-600 px-8 py-3 rounded-lg text-lg font-medium hover:bg-gray-100 transition-colors inline-flex items-center gap-2"
+          >
+            Get Started Free
+            <ArrowRight size={20} />
+          </Link>
+        </div>
+      </div>
+
+      {/* Footer */}
+      <footer className="bg-white border-t border-gray-200 py-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-600">
+          <p>&copy; 2024 No_Machine. Your boundary-setting companion.</p>
+        </div>
       </footer>
     </div>
-  );
+  )
 }
