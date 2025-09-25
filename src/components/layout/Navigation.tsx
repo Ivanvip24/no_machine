@@ -12,9 +12,13 @@ export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const router = useRouter()
   const pathname = usePathname()
-  const supabase = createClient()
 
   useEffect(() => {
+    // Only create client in browser environment
+    if (typeof window === 'undefined') return
+
+    const supabase = createClient()
+
     const getUser = async () => {
       const { data: { user } } = await supabase.auth.getUser()
       setUser(user)
@@ -32,9 +36,12 @@ export default function Navigation() {
     )
 
     return () => subscription.unsubscribe()
-  }, [router, supabase.auth])
+  }, [router])
 
   const handleSignOut = async () => {
+    if (typeof window === 'undefined') return
+
+    const supabase = createClient()
     await supabase.auth.signOut()
     router.push('/')
   }

@@ -18,9 +18,11 @@ export default function HistoryPage() {
   const [selectedGeneration, setSelectedGeneration] = useState<Generation | null>(null)
   const [expandedItems, setExpandedItems] = useState<Set<string>>(new Set())
 
-  const supabase = createClient()
-
   const fetchGenerations = useCallback(async () => {
+    if (typeof window === 'undefined') return
+
+    const supabase = createClient()
+
     try {
       const { data, error } = await supabase
         .from('generations')
@@ -36,7 +38,7 @@ export default function HistoryPage() {
     } finally {
       setIsLoading(false)
     }
-  }, [supabase])
+  }, [])
 
   useEffect(() => {
     fetchGenerations()
@@ -46,6 +48,10 @@ export default function HistoryPage() {
     if (!confirm('Are you sure you want to delete this boundary response?')) {
       return
     }
+
+    if (typeof window === 'undefined') return
+
+    const supabase = createClient()
 
     try {
       const { error } = await supabase
