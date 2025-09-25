@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { createClient } from '@/lib/supabase/client'
 import Navigation from '@/components/layout/Navigation'
 import BoundaryResponseComponent from '@/components/generation/BoundaryResponse'
@@ -18,11 +18,7 @@ export default function HistoryPage() {
 
   const supabase = createClient()
 
-  useEffect(() => {
-    fetchGenerations()
-  }, [])
-
-  const fetchGenerations = async () => {
+  const fetchGenerations = useCallback(async () => {
     try {
       const { data, error } = await supabase
         .from('generations')
@@ -38,7 +34,11 @@ export default function HistoryPage() {
     } finally {
       setIsLoading(false)
     }
-  }
+  }, [supabase])
+
+  useEffect(() => {
+    fetchGenerations()
+  }, [fetchGenerations])
 
   const deleteGeneration = async (id: string) => {
     if (!confirm('Are you sure you want to delete this boundary response?')) {

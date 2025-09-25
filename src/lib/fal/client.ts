@@ -25,7 +25,6 @@ export async function generateImage(prompt: string): Promise<string> {
         guidance_scale: 3.5,
         num_images: 1,
         enable_safety_checker: true,
-        safety_tolerance: 2,
       },
       logs: false,
       onQueueUpdate: (update) => {
@@ -40,22 +39,25 @@ export async function generateImage(prompt: string): Promise<string> {
 
     // Handle different possible response formats
     if (result && typeof result === 'object') {
+      // Cast to any to handle dynamic response structure
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const resultData = result as any
       // Check for different possible property names
       const imageUrl =
-        result.data?.images?.[0]?.url ||     // FAL.ai nested format (CORRECT!)
-        result.images?.[0]?.url ||           // Standard format
-        result.data?.[0]?.url ||             // Alternative format 1
-        result.image?.url ||                 // Alternative format 2
-        result.url ||                        // Direct URL format
-        result.output?.url ||                // Output wrapper format
-        result.result?.images?.[0]?.url ||   // Nested result format
+        resultData.data?.images?.[0]?.url ||     // FAL.ai nested format (CORRECT!)
+        resultData.images?.[0]?.url ||           // Standard format
+        resultData.data?.[0]?.url ||             // Alternative format 1
+        resultData.image?.url ||                 // Alternative format 2
+        resultData.url ||                        // Direct URL format
+        resultData.output?.url ||                // Output wrapper format
+        resultData.result?.images?.[0]?.url ||   // Nested result format
         '';
 
       if (imageUrl) {
         console.log('✅ FAL.ai: Successfully generated image URL:', imageUrl.substring(0, 50) + '...')
         return imageUrl
       } else {
-        console.error('❌ FAL.ai: No image URL found in response. Available properties:', Object.keys(result))
+        console.error('❌ FAL.ai: No image URL found in response. Available properties:', Object.keys(resultData))
         throw new Error('No image URL found in FAL.ai response')
       }
     } else {
@@ -64,12 +66,13 @@ export async function generateImage(prompt: string): Promise<string> {
     }
   } catch (error) {
     console.error('💥 FAL.ai image generation error:', error)
+    const errorDetails = error as Error
     console.error('Error details:', {
-      name: error?.name,
-      message: error?.message,
-      stack: error?.stack?.split('\n')[0]
+      name: errorDetails?.name,
+      message: errorDetails?.message,
+      stack: errorDetails?.stack?.split('\n')[0]
     })
-    throw new Error(`Failed to generate image: ${error?.message || 'Unknown error'}`)
+    throw new Error(`Failed to generate image: ${errorDetails?.message || 'Unknown error'}`)
   }
 }
 

@@ -37,7 +37,7 @@ export default function Home() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-16">
         <div className="text-center mb-16">
           <h1 className="text-5xl font-bold text-gray-900 mb-6">
-            Setting boundaries shouldn't be this hard
+            Setting boundaries shouldn&apos;t be this hard
           </h1>
           <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
             Meet your boundary-setting companion. Get personalized advice on how to decline
@@ -85,7 +85,7 @@ export default function Home() {
             </h3>
             <p className="text-gray-600">
               Learn why each approach works with insights from your reformed
-              people-pleaser coach who's been in your shoes.
+              people-pleaser coach who&apos;s been in your shoes.
             </p>
           </div>
 
@@ -165,8 +165,8 @@ export default function Home() {
                 ))}
               </div>
               <p className="text-gray-700 italic mb-4">
-                "Finally, a tool that helps me say no without feeling guilty!
-                The psychology explanations really help me understand why boundaries work."
+                &ldquo;Finally, a tool that helps me say no without feeling guilty!
+                The psychology explanations really help me understand why boundaries work.&rdquo;
               </p>
               <p className="text-sm text-gray-500">— Sarah K.</p>
             </div>
@@ -178,8 +178,8 @@ export default function Home() {
                 ))}
               </div>
               <p className="text-gray-700 italic mb-4">
-                "The visual mood lighteners are genius! They help break the tension
-                when I have to set firm boundaries with difficult people."
+                &ldquo;The visual mood lighteners are genius! They help break the tension
+                when I have to set firm boundaries with difficult people.&rdquo;
               </p>
               <p className="text-sm text-gray-500">— Mike R.</p>
             </div>
@@ -192,7 +192,7 @@ export default function Home() {
             Ready to Reclaim Your Time?
           </h2>
           <p className="text-xl mb-6 text-indigo-100">
-            Join thousands who've learned to set healthy boundaries with confidence.
+            Join thousands who&apos;ve learned to set healthy boundaries with confidence.
           </p>
           <Link
             href="/auth/register"

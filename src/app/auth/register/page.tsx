@@ -49,7 +49,7 @@ export default function RegisterPage() {
           router.push('/auth/login')
         }, 3000)
       }
-    } catch (err) {
+    } catch {
       setError('An unexpected error occurred')
     } finally {
       setIsLoading(false)
@@ -63,7 +63,7 @@ export default function RegisterPage() {
           <div className="text-center">
             <h2 className="text-3xl font-bold text-gray-900">Check your email</h2>
             <p className="mt-4 text-gray-600">
-              We've sent you a confirmation link. Please check your email and click the link to activate your account.
+              We&apos;ve sent you a confirmation link. Please check your email and click the link to activate your account.
             </p>
             <p className="mt-2 text-sm text-gray-500">
               Redirecting to login page in a few seconds...

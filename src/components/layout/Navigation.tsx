@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { useRouter, usePathname } from 'next/navigation'
 import { createClient } from '@/lib/supabase/client'
 import { User } from '@supabase/supabase-js'
-import { Home, History, Settings, LogOut, Menu, X } from 'lucide-react'
+import { Home, History, LogOut, Menu, X } from 'lucide-react'
 
 export default function Navigation() {
   const [user, setUser] = useState<User | null>(null)
@@ -32,7 +32,7 @@ export default function Navigation() {
     )
 
     return () => subscription.unsubscribe()
-  }, [router])
+  }, [router, supabase.auth])
 
   const handleSignOut = async () => {
     await supabase.auth.signOut()

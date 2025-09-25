@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import Image from 'next/image'
 import { Download, Share2, Copy, Check } from 'lucide-react'
 import { copyToClipboard } from '@/lib/utils'
 
@@ -74,9 +75,11 @@ export default function VisualMoodLightener({ prompt, imageUrl, index }: VisualM
                 <p className="text-gray-400">Loading mood lightener...</p>
               </div>
             )}
-            <img
+            <Image
               src={imageUrl}
               alt={`Visual mood lightener: ${prompt}`}
+              width={400}
+              height={300}
               className={`aspect-[4/3] w-full object-cover transition-opacity ${
                 imageLoaded ? 'opacity-100' : 'opacity-0'
               }`}

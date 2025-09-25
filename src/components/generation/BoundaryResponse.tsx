@@ -61,7 +61,7 @@ export default function BoundaryResponseComponent({ response, userInput }: Bound
           </h2>
           <p className="text-gray-600 mb-6">
             Because setting boundaries can be tough, here are some delightfully absurd visuals
-            to remind you that you've got this! Share these with your message to add some
+            to remind you that you&apos;ve got this! Share these with your message to add some
             levity to serious conversations.
           </p>
 
@@ -81,11 +81,11 @@ export default function BoundaryResponseComponent({ response, userInput }: Bound
       {/* Call to Action */}
       <div className="bg-indigo-600 text-white rounded-lg p-6 text-center">
         <h3 className="text-xl font-semibold mb-2">
-          You've Got This! 💪
+          You&apos;ve Got This! 💪
         </h3>
         <p className="text-indigo-100">
-          Remember: Setting boundaries isn't mean, it's necessary.
-          You're not responsible for managing other people's emotions about your limits.
+          Remember: Setting boundaries isn&apos;t mean, it&apos;s necessary.
+          You&apos;re not responsible for managing other people&apos;s emotions about your limits.
         </p>
       </div>
     </div>
